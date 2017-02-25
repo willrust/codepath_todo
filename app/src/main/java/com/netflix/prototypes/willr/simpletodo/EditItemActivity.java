@@ -1,11 +1,10 @@
 package com.netflix.prototypes.willr.simpletodo;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 public class EditItemActivity extends AppCompatActivity {
@@ -23,8 +22,7 @@ public class EditItemActivity extends AppCompatActivity {
         etEditText.setText(item);
         etEditText.setSelection(item.length());
         etEditText.requestFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
     public void onEditItem(View view) {
